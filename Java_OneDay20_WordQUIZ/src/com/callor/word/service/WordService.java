@@ -34,6 +34,7 @@ public class WordService {
 
 		this.read();
 
+		//dd
 	}
 
 	public void selectMenu() {
