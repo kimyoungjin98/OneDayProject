@@ -106,8 +106,7 @@ public class ScoreService {
 
 	public void inputScore(ScoreVO vo) {
 
-		Integer intScore = null;
-		
+		while(true) {
 		this.inputKor(vo);
 		this.inputEng(vo);
 		this.inputMath(vo);
@@ -127,30 +126,9 @@ public class ScoreService {
 		totalHis += vo.getIntHis();
 
 		total = totalKor + totalEng + totalMath + totalSci + totalHis;
-
-	}
-
-	public void printScore() {
-
-		System.out.println(LinesSerivce.dLines(50));
-		System.out.println("이름\t국어\t영어\t수학\t과학\t국사\t총점\t평균");
-		System.out.println(LinesSerivce.sLines(50));
-
-		for (int i = 0; i < scoreList.size(); i++) {
-			ScoreVO vo = scoreList.get(i);
-
-			System.out.printf("%s\t%d\t%d\t%d\t%d\t%d\t%d\t%3.2f\n", vo.getStrName(), vo.getIntKor(), vo.getIntEng(),
-					vo.getIntMath(), vo.getIntSci(), vo.getIntHis(), vo.getIntSum(), vo.getFloatAvg());
-
-			totalAvg = (float) total / 5 / scoreList.size();
 		}
-
-		System.out.println(LinesSerivce.dLines(50));
-		System.out.printf("총점\t%d\t%d\t%d\t%d\t%d\t%d\t%3.2f\n", totalKor, totalEng, totalMath, totalSci, totalHis,
-				total, totalAvg);
-
 	}
-
+	
 	public void inputKor(ScoreVO vo) {
 		
 		while (true) {
@@ -230,6 +208,27 @@ public class ScoreService {
 				break;
 			}
 		}
+	}
+
+	public void printScore() {
+
+		System.out.println(LinesSerivce.dLines(50));
+		System.out.println("이름\t국어\t영어\t수학\t과학\t국사\t총점\t평균");
+		System.out.println(LinesSerivce.sLines(50));
+
+		for (int i = 0; i < scoreList.size(); i++) {
+			ScoreVO vo = scoreList.get(i);
+
+			System.out.printf("%s\t%d\t%d\t%d\t%d\t%d\t%d\t%3.2f\n", vo.getStrName(), vo.getIntKor(), vo.getIntEng(),
+					vo.getIntMath(), vo.getIntSci(), vo.getIntHis(), vo.getIntSum(), vo.getFloatAvg());
+
+			totalAvg = (float) total / 5 / scoreList.size();
+		}
+
+		System.out.println(LinesSerivce.dLines(50));
+		System.out.printf("총점\t%d\t%d\t%d\t%d\t%d\t%d\t%3.2f\n", totalKor, totalEng, totalMath, totalSci, totalHis,
+				total, totalAvg);
+
 	}
 
 }
