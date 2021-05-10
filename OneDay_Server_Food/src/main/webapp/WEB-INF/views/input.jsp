@@ -7,10 +7,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>입력 완료 !</h1>
-	
-	<a href = "/food/diet/foodList">식품리스트</a>
-	<a href = "/food">처음화면</a>
-	
+	<h1>섭취정보 입력</h1>
+	<p>
+	<input name="f_date"/>
+	<input name="f_size"/>
+	<form action="">
+	<button>입력</button>
 </body>
 </html>

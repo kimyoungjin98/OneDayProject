@@ -58,7 +58,7 @@ public class FoodServiceImpl implements FoodService {
 	}
 
 	@Override
-	public int insert(FoodVO foodVO) {
+	public int insert(FoodVO foodVO, String fd_code) {
 
 		String sql = " INSERT INTO tbl_myfoods(mf_seq,mf_date,mf_fcode,mf_size) ";
 		sql += " VALUES (mf_seq.NEXTVAL, ?, ? ,?)";
@@ -69,7 +69,7 @@ public class FoodServiceImpl implements FoodService {
 			pStr = dbConn.prepareStatement(sql);
 			
 			pStr.setString(1, foodVO.getF_date());
-			pStr.setString(2, foodVO.getF_fcode());
+			pStr.setString(2, fd_code);
 			pStr.setInt(3, foodVO.getF_size());
 			
 			int result = pStr.executeUpdate();
@@ -110,11 +110,7 @@ public class FoodServiceImpl implements FoodService {
 	}
 	
 
-	@Override
-	public List<FoodTotalDTO> selectTotal() {
 
-		return null;
-	}
 
 	@Override
 	public List<FoodDTO> findByDate() {

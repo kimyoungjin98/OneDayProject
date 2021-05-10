@@ -54,6 +54,8 @@ FROM tbl_foods F
         ON F.fd_fcode = I.it_code
 );
 
+SELECT * FROM view_식품정보;
+
 DROP TABLE tbl_myfoods;
 
 CREATE TABLE tbl_myfoods(
@@ -64,9 +66,15 @@ CREATE TABLE tbl_myfoods(
         );
 
 
+CREATE SEQUENCE mf_seq 
+INCREMENT BY 1
+START WITH 1;
+
+DROP SEQUENCE mf_seq;
+
         
 INSERT INTO tbl_myfoods(mf_seq ,mf_date, mf_fcode,mf_size)
-VALUES (1,'2021-05-10', 'PD00018', 2);
+VALUES (mf_seq.NEXTVAL,'2021-05-10', 'PD00018', 2);
         
 DROP VIEW view_섭취정보;        
 

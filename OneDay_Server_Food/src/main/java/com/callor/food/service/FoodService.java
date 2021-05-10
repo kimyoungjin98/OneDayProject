@@ -9,13 +9,11 @@ import com.callor.food.model.FoodVO;
 public interface FoodService {
 
 	// 데이터 입력
-	public int insert(FoodVO foodVO);
+	public int insert(FoodVO foodVO, String fd_code);
 	
 	// 전체 데이터 조회
 	public List<FoodDTO> selectAll();
 	
-	// 식품정보 조회
-	public List<FoodTotalDTO> selectTotal();
 	
 	// 날짜별로 데이터 조회
 	public List<FoodDTO> findByDate();

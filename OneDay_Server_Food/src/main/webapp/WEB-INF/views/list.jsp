@@ -8,24 +8,43 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action=/food>
 	<h1>다이어트를 도와줘</h1>
 	<h3>섭취목록 리스트</h3>
-		
-		<c:forEach items="${FoodList}" var="List">
-		<p>
-		SEQ : ${List.mf_seq}
-		날짜 : ${List.mf_date},
-		식품명 : ${List.mf_name}
-		섭취량 : ${List.mf_size}
-		에너지 : ${List.mf_energy}
-		총 내용량 : ${List.mf_total}
-		단백질 : ${List.mf_protein} 
-		지방 : ${List.mf_fat}
-		탄수화물 : ${List.mf_carbo}
-		총 당류 : ${List.mf_sugar}</p>
-		</c:forEach>
-		
+	
+	    <p>
+		<form action="diet/foodList">
+		<button>섭취정보 입력</button>		
 		</form>
+		
+		<p>
+		
+		<table border="1">
+		<th>SEQ
+		<th>날짜 
+		<th>식품명
+		<th>섭취량
+		<th>에너지
+		<th>총 내용량
+		<th>단백질
+		<th>지방
+		<th>탄수화물
+		<th>총 당류
+		
+		<tr>
+		<c:forEach items="${FoodList}" var="List">
+		<td>${List.mf_seq}</td>
+		<td>${List.mf_date}</td>
+		<td>${List.mf_name}</td>
+		<td>${List.mf_size}</td>
+		<td>${List.mf_energy}</td>
+		<td>${List.mf_total}</td>
+		<td>${List.mf_protein}</td>
+		<td>${List.mf_fat}</td>
+		<td>${List.mf_carbo}</td>
+		<td>${List.mf_sugar}</td></tr>
+			</c:forEach> 
+			</table>
+		
+		
 </body>
 </html>

@@ -33,7 +33,6 @@ public class HomeController extends HttpServlet {
 
 
 		resp.setContentType("text/html;charset=UTF-8");
-		PrintWriter out = resp.getWriter();
 
 		FoodDTO foodDTO = new FoodDTO();
 		List<FoodDTO> foodList = foodService.selectAll();
