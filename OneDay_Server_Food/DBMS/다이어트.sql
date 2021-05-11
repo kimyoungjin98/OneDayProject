@@ -65,13 +65,14 @@ CREATE TABLE tbl_myfoods(
     mf_size NUMBER NOT NULL    
         );
 
+DELETE tbl_myfoods
+WHERE mf_seq = 7;
 
 CREATE SEQUENCE mf_seq 
 INCREMENT BY 1
 START WITH 1;
 
 DROP SEQUENCE mf_seq;
-
         
 INSERT INTO tbl_myfoods(mf_seq ,mf_date, mf_fcode,mf_size)
 VALUES (mf_seq.NEXTVAL,'2021-05-10', 'PD00018', 2);

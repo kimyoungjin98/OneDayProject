@@ -10,20 +10,26 @@
 <body>
 	<h1>식품 정보 리스트</h1>
 	
-	<form action="foodList/select">
-	<h3>식품 이름으로 조회</h3>
-		<input name="fd_name"/><button>전송</button>
+	<form action="/food/select">
+	식품 이름 입력 : <input type="text" name="fd_name"/>
+					<input type="submit" value=전송>
 	</form>
 	
+	<%--
 	<form action="foodList/code">
 	<h3>식품 코드로 조회</h3>
 		<input name="fd_code"/><button>전송</button>
 	</form>
 	<p>
 	
+	
+	 --%>
+	 <p>
+	
 	<a href = "/food/">돌아가기</a>
 	
 	<table border="1">
+	<tr bgcolor="violet">
 		<th>식품코드
 		<th>식품명 
 		<th>출시 연도

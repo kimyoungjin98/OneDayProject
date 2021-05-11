@@ -113,8 +113,27 @@ public class FoodServiceImpl implements FoodService {
 
 
 	@Override
-	public List<FoodDTO> findByDate() {
+	public List<FoodDTO> findByDate(String mf_date) {
 
+		String sql = "SELECT * FROM view_섭취정보";
+		sql += " WHERE 날짜 LIKE '%' || ? || '%' ";
+		
+		PreparedStatement pStr = null;
+		
+		try {
+			pStr = dbConn.prepareStatement(sql);
+			pStr.setString(1, mf_date);
+			
+			List<FoodDTO> foodList = this.select(pStr);
+			
+			pStr.close();
+			
+			return foodList;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return null;
 	}
 
@@ -125,9 +144,27 @@ public class FoodServiceImpl implements FoodService {
 	}
 
 	@Override
-	public void delete() {
-		// TODO Auto-generated method stub
-
+	public int delete(Integer mf_seq) {
+		// 삭제
+		
+		String sql = " DELETE tbl_myfoods ";
+		sql += " WHERE mf_seq = ? ";
+		
+		PreparedStatement pStr = null;
+		try {
+			pStr = dbConn.prepareStatement(sql);
+			pStr.setInt(1, mf_seq);
+			
+			int result = pStr.executeUpdate();
+			
+			pStr.close();
+			
+			return result;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return 0;
 	}
 
 }

@@ -8,35 +8,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>다이어트를 도와줘</h1>
+	<h1>날짜순으로 조회한 리스트</h1>
 	
+	<a href="/food">돌아가기</a>
 	
-	    <p>
-		<form action="diet/foodList">
-		<button>섭취정보 입력</button>		
-		</form>
-		<p>
-		
-		<form action="/food/delete">
-		<button>데이터 삭제하기</button>		
-		</form>
-		
-		
-		<p>
-		
-		날짜를 입력하세요
-		<form action="diet/date?">
-		<input name="mf_date">
-		<button>전송</button>		
-		</form>
-		
-		<p>
-		
-		
-		<h3>섭취목록 리스트</h3>
-		<p>
-		<table border="1">
-		<tr bgcolor="violet">
+	<p>
+	
+	<table border="1">
 		<th>SEQ
 		<th>날짜 
 		<th>식품명
@@ -62,7 +40,5 @@
 		<td>${List.mf_sugar}</td></tr>
 			</c:forEach> 
 			</table>
-		
-		
 </body>
 </html>

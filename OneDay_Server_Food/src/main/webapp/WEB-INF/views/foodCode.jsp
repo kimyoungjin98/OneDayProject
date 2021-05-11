@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta http-equiv="content-type" content="text/html" ;charset="EUC-KR">
 <title>Insert title here</title>
 </head>
 <body>
@@ -14,6 +14,7 @@
 	<p>
 	
 	<table border="1">
+	<tr bgcolor="violet">
 		<th>식품코드
 		<th>식품명 
 		<th>출시 연도
@@ -50,12 +51,12 @@
 	  <p>
 	  <h2>섭취 정보 입력</h2>
 	  
-	
+
 	  
-	<form action="/food/diet/insert?">
-	날짜 : <input name="f_date"/>
+	<form action="/food/insert" method="POST">
+	날짜 : <input type="date" name="f_date" value="2021-01-01"/>
 	섭취량 : <input name="f_size"/>
-	식품코드 : <input name="f_fcode"/>
+	식품코드 : <input name="f_fcode" value=${FOOD.fd_code}>
 	<button>입력</button>
 	
 	

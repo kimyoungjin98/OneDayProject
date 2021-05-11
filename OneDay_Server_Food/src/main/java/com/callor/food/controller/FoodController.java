@@ -45,39 +45,23 @@ public class FoodController extends HttpServlet {
 		resp.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = resp.getWriter();
 
-		if (subPath.equals("/insert")) {
-			// 섭취정보 등록
-
-			Integer size = 0;
-
-			String fd_code = req.getParameter("f_fcode");
-			String f_date = req.getParameter("f_date");
-			String f_size = req.getParameter("f_size");
-			size = Integer.valueOf(f_size);
-
-			FoodVO foodVO = new FoodVO();
-
-			foodVO.setF_date(f_date);
-			foodVO.setF_fcode(fd_code);
-			foodVO.setF_size(size);
-
-			int result = foodService.insert(foodVO, fd_code);
-
-			if (result > 0) {
-				System.out.println("데이터 입력 성공");
-			} else {
-				System.out.println("데이터 입력 실패");
-			}
-
-			req.getRequestDispatcher("/WEB-INF/views/insert.jsp").forward(req, resp);
 			
-		} else if (subPath.equals("/date")) {
+		if (subPath.equals("/date")) {
 			// 날짜순으로 조회
+			
+			String mf_date = req.getParameter("mf_date");
+			
+			List<FoodDTO> foodList = foodService.findByDate(mf_date);
+			
+			for(FoodDTO ftDTO : foodList) {
+				
+			}
+			
+			req.setAttribute("FoodList", foodList);
+			
+			req.getRequestDispatcher("/WEB-INF/views/date.jsp").forward(req, resp);
 
-		} else if (subPath.equals("/fname")) {
-			// 식품명으로 조회
-
-		} else if (subPath.equals("/foodList")) {
+		}  else if (subPath.equals("/foodList")) {
 
 			List<FoodTotalDTO> fList = foodAllService.selectAll();
 
@@ -88,21 +72,7 @@ public class FoodController extends HttpServlet {
 
 			req.getRequestDispatcher("/WEB-INF/views/foodList.jsp").forward(req, resp);
 
-		} else if (subPath.equals("/foodList/select")) {
-
-			String fd_name = req.getParameter("fd_name");
-			List<FoodTotalDTO> foodList = foodAllService.search(fd_name);
-
-			for (FoodTotalDTO foodTotalDTO : foodList) {
-				System.out.println(foodList.toString());
-			}
-
-			req.setAttribute("FOODLIST", foodList);
-
-			RequestDispatcher disp = req.getRequestDispatcher("/WEB-INF/views/selectFood.jsp");
-			disp.forward(req, resp);
-
-		} else if (subPath.equals("/foodList/code")) {
+		}  else if (subPath.equals("/foodList/code")) {
 
 			String fd_code = req.getParameter("fd_code");
 			FoodTotalDTO foodTotalDTO = foodAllService.findByCode(fd_code);

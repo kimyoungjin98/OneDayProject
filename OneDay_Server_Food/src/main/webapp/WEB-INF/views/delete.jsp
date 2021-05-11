@@ -8,35 +8,19 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>다이어트를 도와줘</h1>
+	<table border="1">
+	<tr bgcolor="violet">
+	<h2>삭제할 데이터의 SEQ 입력</h2>
+	<form action="/food/delete" method="POST">
+	<input name="mf_seq">
+	<button>전송</button>
+	</form>
+	<p>
 	
+	<a href = "/food">돌아가기</a>
 	
-	    <p>
-		<form action="diet/foodList">
-		<button>섭취정보 입력</button>		
-		</form>
-		<p>
-		
-		<form action="/food/delete">
-		<button>데이터 삭제하기</button>		
-		</form>
-		
-		
-		<p>
-		
-		날짜를 입력하세요
-		<form action="diet/date?">
-		<input name="mf_date">
-		<button>전송</button>		
-		</form>
-		
-		<p>
-		
-		
-		<h3>섭취목록 리스트</h3>
-		<p>
-		<table border="1">
-		<tr bgcolor="violet">
+	<p>
+	
 		<th>SEQ
 		<th>날짜 
 		<th>식품명
@@ -50,7 +34,7 @@
 		
 		<tr>
 		<c:forEach items="${FoodList}" var="List">
-		<td>${List.mf_seq}</td>
+		<td>${List.mf_seq}</a></td>
 		<td>${List.mf_date}</td>
 		<td>${List.mf_name}</td>
 		<td>${List.mf_size}</td>
@@ -62,7 +46,6 @@
 		<td>${List.mf_sugar}</td></tr>
 			</c:forEach> 
 			</table>
-		
-		
+			
 </body>
 </html>

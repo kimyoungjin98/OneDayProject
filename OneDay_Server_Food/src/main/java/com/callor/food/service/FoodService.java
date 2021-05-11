@@ -16,13 +16,13 @@ public interface FoodService {
 	
 	
 	// 날짜별로 데이터 조회
-	public List<FoodDTO> findByDate();
+	public List<FoodDTO> findByDate(String mf_date);
 	
 	// 데이터 업데이트
 	public void update();
 	
 	// 데이터 삭제
-	public void delete();
+	public int delete(Integer mf_seq);
 
 
 	

@@ -15,6 +15,7 @@
 	<p>
 	
 	<table border="1">
+	<tr bgcolor="violet">
 	    <th>식품코드
 		<th>식품명 
 		<th>출시 연도
