@@ -1,16 +1,16 @@
 CREATE TABLE tbl_foods(
     fd_code	VARCHAR2(7)		PRIMARY KEY,
-fd_name	nVARCHAR2(125)	NOT NULL	,
-fd_year	NUMBER	NOT NULL	,
-fd_ccode	VARCHAR2(6)	NOT NULL	,
-fd_fcode	VARCHAR2(4)	NOT NULL	,
-fd_serv	NUMBER	NOT NULL	,
-fd_total	NUMBER		,
-fd_energy	NUMBER	NOT NULL	,
-fd_protein	NUMBER		,
-fd_fat	NUMBER		,
-fd_carbo	NUMBER	,	
-fd_sugar	NUMBER		
+    fd_name	nVARCHAR2(125)	NOT NULL	,
+    fd_year	NUMBER	NOT NULL	,
+    fd_ccode	VARCHAR2(6)	NOT NULL	,
+    fd_fcode	VARCHAR2(4)	NOT NULL	,
+    fd_serv	NUMBER	NOT NULL	,
+    fd_total	NUMBER		,
+    fd_energy	NUMBER	NOT NULL	,
+    fd_protein	NUMBER		,
+    fd_fat	NUMBER		,
+    fd_carbo	NUMBER	,	
+    fd_sugar	NUMBER		
 );
 
 DROP TABLE tbl_foods;
@@ -24,6 +24,11 @@ CREATE TABLE tbl_items(
     it_code	VARCHAR2(4)		PRIMARY KEY,
     it_name	nVARCHAR2(100)	NOT NULL	
 );
+
+-- 세개의 table간의 참조무결성 설정
+-- 누가 부모이고, 누가 자손인지 파악
+-- 자손 : tbl_foods, 부모 : tbl_compnay, tbl_items
+-- FK 설정은 자손 table에 설정하기
 
 ALTER TABLE tbl_foods 
 ADD CONSTRAINT fk_ccode

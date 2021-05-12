@@ -36,7 +36,8 @@ public class FoodController extends HttpServlet {
 		foodService = new FoodServiceImpl();
 		foodAllService = new FoodAllServiceImpl();
 	}
-
+	
+	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
@@ -84,5 +85,7 @@ public class FoodController extends HttpServlet {
 		}
 
 	}
+	
+	
 
 }
