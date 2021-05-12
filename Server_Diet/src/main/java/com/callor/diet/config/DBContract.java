@@ -12,8 +12,8 @@ public class DBContract {
 		
 		String jdbcDriver ="oracle.jdbc.OracleDriver";
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
-		String username = "food";
-		String password = "food";
+		String username = "myfood";
+		String password = "myfood";
 		
 		// 이 프로젝트에서 어딘가에서 이미 dbConn이 만들어져 있다면
 		// 다시 만들지 않기 위한 코드
@@ -44,6 +44,11 @@ public class DBContract {
 			}
 			
 		}
+	}
+	
+	public static Connection getDBConnection() {
+		
+		return dbConn;
 	}
 	
 }
