@@ -165,3 +165,5 @@ CREATE VIEW view_섭취량계산 AS
         LEFT JOIN view_식품정보
             ON mf_fcode = 식품코드
 );
+
+COMMIT;
